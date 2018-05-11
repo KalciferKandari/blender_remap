@@ -23,9 +23,22 @@ print("==========\n")
 # - Close all Blender windows, all of them.
 # - Open the '.blend' file where the script will be run using 'blender file_name.blend'.
 # - Do not mess-up the project path, that could be bad.
-# - GROUP: Create DupliGroup in the source file, open the script in the internal text editor and type the new name for the first argument, 'GROUP' for the second argument, and the project path and script path for the next 2 arguments, run the script. The DupliGroup will remain, so deleted if you want.
-# - MESH: Select the object in the source file, open the script in the internal text editor and type the new name for the first argument, 'MESH' for the second argument, and the project path and script path for the next 2 arguments, run the script.
-# - MATERIAL: Select an object in the source file that has the material, select the material from the materials panel, open the script in the internal text editor and type the new name for the first argument, 'MATERIAL' for the second argument, and the project path and script path for the next 2 arguments, run the script.
+# - GROUP:
+#     - Create DupliGroup in the source file.
+#     - Open the script in the internal text editor.
+#     - Set the inputs where remap_rename() is called in the file. It takes new name for the first argument, 'GROUP' for the second argument, and the project path and script path for the next 2 arguments.
+#     - Click 'Run Script' on the text editor panel.
+# - MESH:
+#     - Select the object in the source file.
+#     - Open the script in the internal text editor.
+#     - Set the inputs where remap_rename() is called in the file. It takes the new name for the first argument, 'MESH' for the second argument, and the project path and script path for the next 2 arguments.
+#     - Click 'Run Script' on the text editor panel.
+# - MATERIAL:
+#     - Select an object in the source file that has the material.
+#     - Select the material from the materials panel.
+#     - Open the script in the internal text editor.
+#     - Type the new name for the first argument, 'MATERIAL' for the second argument, and the project path and script path for the next 2 arguments.
+#     - Click 'Run Script' on the text editor panel.
 #
 remap_name(
     "NEW_NAME",  # New name.

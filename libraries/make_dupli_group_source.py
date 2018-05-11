@@ -28,6 +28,8 @@ def make_dupli_group_source(project_path, scripts_path):
 
     # TODO Do all the libraries that are no longer necessary get garbage collected properly?
 
+    # TODO Check that all the transforms of the DupliGroup are zeroed.
+
     # ----------
     # Checks and variables.
     # ----------
