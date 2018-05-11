@@ -24,7 +24,7 @@ Makes the selected DupliGroup the source by updating all the references to the o
 
 - **Make a copy of the project folder, very important.**
 - Close all Blender windows, all of them.
-- Open the '.blend' file where the script will be run using 'blender file_name.blend'.
+- Use the command 'blender file_name.blend' to open the '.blend' file where the script will be run.
 - Link the script to the internal text editor.
 - Select the single DupliGroup to be made the source.
 - Make sure the DupliGroup has its transforms zeroed.
@@ -43,10 +43,10 @@ Renames the select data and ensure all the internal and external links still wor
 
 - **Make a copy of the project folder, very important.**
 - Close all Blender windows, all of them.
-- Open the '.blend' file where the script will be run using 'blender file_name.blend'.
+- Use the command 'blender file_name.blend' to open the '.blend' file where the script will be run.
 - Do not mess-up the project path, that could be bad.
 - GROUP:
-    - Create DupliGroup in the source file.
+    - Create DupliGroup in the source file. This is just for the purpose of selecting the group.
     - Open the script in the internal text editor.
     - Set the inputs where remap_rename() is called in the file. It takes new name for the first argument, 'GROUP' for the second argument, and the project path and script path for the next 2 arguments.
     - Click 'Run Script' on the text editor panel.
@@ -78,10 +78,10 @@ Safely deletes data by ensuring there are no internal or external references to 
 
 - **Make a copy of the project folder, very important.**
 - Close all Blender windows, all of them.
-- Open the '.blend' file where the script will be run using 'blender file_name.blend'.
+- Use the command 'blender file_name.blend' to open the '.blend' file where the script will be run.
 - Do not mess-up the project path, that could be bad.
 - GROUP:
-    - Create DupliGroup in the source file.
+    - Create DupliGroup in the source file. This is just for the purpose of selecting the group.
     - Open the script in the internal text editor.
     - Type 'GROUP' for the first argument, and the project path and script path for the next 2 arguments, run the script.
     - The DupliGroup will automatically be deleted.
