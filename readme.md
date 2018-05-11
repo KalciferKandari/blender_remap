@@ -67,12 +67,12 @@ Renames the select data and ensure all the internal and external links still wor
 Safely deletes data by ensuring there are no internal or external references to it. Must be done in the source file of the data.
 
 - GROUP: Safely deletes a group, but not objects that were in it.
-    - **Note**: That those objects might still be part of other groups.
+    - **Note**: Those objects might still be part of other groups.
 - MESH: Safely deletes an object and its data.
-    - **Note** that it will still be deleted even if it is part of a group, but not if that group has DupliGroups created from it.
+    - **Note** The object will still be deleted even if it is part of a group, but not if that group has DupliGroups created from it.
     - **Note**: If the object being deleted is the last user of a material, that material will be deleted.
 - Material: Safely deletes a material and the material slot it was in.
-    - **Note**: that if a material has been created in the current file and not saved, it will be deleted even though if the file was saved it wouldn't be.
+    - **Note**: If a material has been created in the current file and not saved, it will be deleted even though if the file was saved it wouldn't be.
 
 #### Usage
 
@@ -99,8 +99,8 @@ Safely deletes data by ensuring there are no internal or external references to 
 
 In the current form these scripts work for me, so I have no reason to spend a lot of time making them better, and if someone did I would even be very interested in switching to theirs.
 
-Clearly the workflow is not ideal, a lot of work could be done to improve the ease-of-use and speed that the scripts run.
+Clearly the work-flow is not ideal, a lot of work could be done to improve the ease-of-use and speed that the scripts run.
 
 - To begin with, iterating through the '.blend' files with the blender command is very slow, and in fact the scripts are a minute fraction that time, so the files should be read directly, possibly using [blendfile.py](https://github.com/scorpion81/blender-addons/blob/master/io_blend_utils/blend/blendfile.py).
-- Of course a great improvement would be the conversion to a Blender addon with a GUI, if possible.
+- Of course a great improvement would be the conversion to a Blender add-on with a GUI, if possible.
 - More robust error-handling. I didn't go into much detail into this. If the computer crashes part way through, for example, nothing is done to account for that. The only thing to do would be to restore the backup copy of the project directory.
