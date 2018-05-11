@@ -11,7 +11,8 @@ from refactor.libraries.blend_iterate import blend_iterate
 # ==========
 # Description:
 # ==========
-# Deletes a group, object, or material only if it has no references in a particular directory.
+# Deletes a group, object, or material only if it has no references in a
+# particular directory.
 #
 # ==========
 # Usage:
@@ -22,8 +23,10 @@ from refactor.libraries.blend_iterate import blend_iterate
 # Inputs:
 # ==========
 # - <string> data_type: 'MESH', 'GROUP', 'MATERIAL'.
-# - <string> project_path: Absolute project directory path to be recursively searched for references.
-# - <string> scripts_path: Absolute scripts directory path, where the accompanying scripts are stored.
+# - <string> project_path: Absolute project directory path to be recursively
+#  searched for references.
+# - <string> scripts_path: Absolute scripts directory path, where the
+# accompanying scripts are stored.
 #
 # ==========
 # Return:
@@ -40,7 +43,8 @@ def safe_delete(data_type, project_path, scripts_path):
     obj = scene.objects.active
     script_path = scripts_path + "\\" + "reference_check.py"
     err_internal_reference_found = "Exiting script: Internal reference found."
-    err_not_source = "Exiting script: This file must be the source of the data being renamed."
+    err_not_source = "Exiting script: This file must be the source of the " \
+                     "data being renamed."
     dupli_group = None
     mat = None
 
@@ -55,7 +59,9 @@ def safe_delete(data_type, project_path, scripts_path):
         # ----------
 
         if (obj.dupli_group is None) or (obj.dupli_type != "GROUP"):
-            print("Exiting script: The selected object must be a DupliGroup of the group trying to be deleted, just so it can be selected.")
+            print(
+                "Exiting script: The selected object must be a DupliGroup of "
+                "the group trying to be deleted, just so it can be selected.")
             # Stop the script by returning.
             return
 
@@ -88,14 +94,19 @@ def safe_delete(data_type, project_path, scripts_path):
         # Checks.
         # ----------
 
-        # FIXME Need to determine whether this is the last user of a material as well? Not going to do this right now because it would require creating a batch version of 'reference_check.py'.
+        # FIXME Need to determine whether this is the last user of a
+        # material as well? Not going to do this right now because it would
+        # require creating a batch version of 'reference_check.py'.
 
         if (obj.type != "MESH"):
             print("Exiting script: Data not of type 'MESH'.")
             # Stop the script by returning.
             return
-        elif obj.dupli_group is not None:  # TODO Does this work to ensure that the data is of a mesh only?
-            print("Exiting script: The object data cannot have a DupliGroup associated with it.")
+        elif obj.dupli_group is not None:  # TODO Does this work to ensure
+            # that the data is of a mesh only?
+            print(
+                "Exiting script: The object data cannot have a DupliGroup "
+                "associated with it.")
             # Stop the script by returning.
             return
 
@@ -149,14 +160,16 @@ def safe_delete(data_type, project_path, scripts_path):
     # ----------
     else:
         print(
-            "Exiting script: '%s' is not a valid data type for this function, which are 'MESH', 'GROUP', or 'MATERIAL'." % data_type)
+            "Exiting script: '%s' is not a valid data type for this "
+            "function, which are 'MESH', 'GROUP', or 'MATERIAL'." % data_type)
         # Stop the script by returning.
         return
 
     print("----------")
     print("Checking for external references.")
 
-    # Find external references by iterating through the '.blend' files in the 'project_path'.
+    # Find external references by iterating through the '.blend' files in
+    # the 'project_path'.
     return_codes = blend_iterate(
         project_path,  # Direct argument.
         script_path,  # Direct argument.
@@ -179,7 +192,9 @@ def safe_delete(data_type, project_path, scripts_path):
             print("Deleting group and the selected DupliGroup.")
             print("----------")
             data.groups.remove(dupli_group)
-            # Also need to delete the selected object because it is a DupliGroup that will lose its reference so definitely not needed anymore.
+            # Also need to delete the selected object because it is a
+            # DupliGroup that will lose its reference so definitely not
+            # needed anymore.
             data.objects.remove(obj)
         elif data_type == "MESH":
             print("----------")
@@ -191,7 +206,8 @@ def safe_delete(data_type, project_path, scripts_path):
             print("Deleting selected material.")
             print("----------")
 
-            # Not sure if the just the bottom of the two lines below is necessary.
+            # Not sure if the just the bottom of the two lines below is
+            # necessary.
             data.materials.remove(mat)
             bpy.ops.object.material_slot_remove()
             pass

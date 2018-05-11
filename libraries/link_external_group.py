@@ -19,8 +19,10 @@ import bpy
 # <bpy.types.Group> The group.
 #
 def link_external_group(library_path, group_name):
-    # In this with statement, the data_to is just a list of strings, but after the with statement, it is actual data.
-    with bpy.data.libraries.load(library_path, link=True) as (data_from, data_to):
+    # In this with statement, the data_to is just a list of strings,
+    # but after the with statement, it is actual data.
+    with bpy.data.libraries.load(library_path, link=True) as (data_from,
+                                                              data_to):
         data_to.groups = [group_name]
 
     return data_to.groups[0]

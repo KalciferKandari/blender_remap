@@ -16,29 +16,36 @@ import os
 # <string> The relative path.
 #
 def abs_into_rel_to_proj(project_path, path):
-    # Return the relative path between 'path' and the common path between it and 'project_path'.
+    # Return the relative path between 'path' and the common path between it
+    #  and 'project_path'.
     return os.path.relpath(path, os.path.commonpath([project_path, path]))
 
 
 # ==========
 # Inputs:
 # ==========
-# - <string> relative_to_project_path: A path that is already relative to the project_path.
-# - <string> path: A path that is relative to the first argument, relative_to_project_path.
+# - <string> relative_to_project_path: A path that is already relative to
+# the project_path.
+# - <string> path: A path that is relative to the first argument,
+# relative_to_project_path.
 #
 # ==========
 # Returns:
 # ==========
 # <string> or None.
 #
-# TODO Assumes that all the '..' in the 'path' argument are at the front. Might need to change this if it becomes a problem.
+# TODO Assumes that all the '..' in the 'path' argument are at the front.
+# Might need to change this if it becomes a problem.
+#
 def rel_into_rel_to_proj(relative_to_project_path, path):
     p = PurePath(path)
     parts_1 = p.parts
     parts_2 = PurePath(relative_to_project_path).parts
     down = 0
-    # Loop through the 2 path arguments and determine how much they go up and down in order to find a common path factor.
-    # TODO This does not account for symbolic links 'example/./path', and maybe some other things, not sure if it will be a problem.
+    # Loop through the 2 path arguments and determine how much they go up
+    # and down in order to find a common path factor.
+    # TODO This does not account for symbolic links 'example/./path',
+    # and maybe some other things, not sure if it will be a problem.
     for part in parts_1:
         if part == "..":
             down += 1
@@ -69,7 +76,8 @@ def rel_into_rel_to_proj(relative_to_project_path, path):
 # ==========
 # Description:
 # ==========
-# Makes an absolute path 'abs_path' relative to 'rel_to'. Both arguments should be absolute paths. It removes the './' or '.\' from the front.
+# Makes an absolute path 'abs_path' relative to 'rel_to'. Both arguments
+# should be absolute paths. It removes the './' or '.\' from the front.
 #
 def to_blender_friendly_rel(abs_path, rel_to):
     # Generate the relative path.

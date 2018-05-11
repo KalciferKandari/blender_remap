@@ -3,7 +3,8 @@
 import bpy
 from refactor.libraries.proj_path_utilities import to_blender_friendly_rel
 from pathlib import PurePath
-from refactor.libraries.reference_check_utilities import is_dupli_group_ref, is_object_ref, is_material_ref
+from refactor.libraries.reference_check_utilities import is_dupli_group_ref, \
+    is_object_ref, is_material_ref
 
 
 # ==========
@@ -32,13 +33,15 @@ from refactor.libraries.reference_check_utilities import is_dupli_group_ref, is_
 # TODO Test for DupliGroups.
 # TODO Test for objects.
 # TODO Test for materials.
-def reference_remap_by_rename(abs_to_library, data_type, old_data_name, new_data_name):
+def reference_remap_by_rename(abs_to_library, data_type, old_data_name,
+                              new_data_name):
     print("----------")
     print("Now remapping external references.")
     print("----------")
 
     data = bpy.data
-    rel_to_library = '//' + to_blender_friendly_rel(abs_to_library, data.filepath)
+    rel_to_library = '//' + to_blender_friendly_rel(abs_to_library,
+                                                    data.filepath)
     reference_found = False
     rel_to_current_file = PurePath(data.filepath).name
     library = None
@@ -49,7 +52,8 @@ def reference_remap_by_rename(abs_to_library, data_type, old_data_name, new_data
             break
 
     # ----------
-    # Don't need to check the library file, because that is sorted in the main script.
+    # Don't need to check the library file, because that is sorted in the
+    # main script.
     # ----------
     if rel_to_current_file == rel_to_library:
         pass
@@ -59,7 +63,8 @@ def reference_remap_by_rename(abs_to_library, data_type, old_data_name, new_data
         # ----------
         if data_type == "GROUP":
             for obj_iter in data.objects:
-                if is_dupli_group_ref(obj_iter.dupli_group, old_data_name, library):
+                if is_dupli_group_ref(obj_iter.dupli_group, old_data_name,
+                                      library):
                     obj_iter.dupli_group.name = new_data_name
                     reference_found = True
                     break
@@ -86,7 +91,9 @@ def reference_remap_by_rename(abs_to_library, data_type, old_data_name, new_data
         # ----------
         else:
             print("----------")
-            print("'%s' is not a valid data type for this function, which are 'MESH', 'GROUP', or 'MATERIAL'." % data_type)
+            print(
+                "'%s' is not a valid data type for this function, which are "
+                "'MESH', 'GROUP', or 'MATERIAL'." % data_type)
             print("----------")
             return
 
@@ -105,6 +112,7 @@ def reference_remap_by_rename(abs_to_library, data_type, old_data_name, new_data
 
         bpy.ops.wm.save_mainfile()
 
+
 if __name__ == "__main__":
     import sys
 
@@ -114,4 +122,5 @@ if __name__ == "__main__":
     # else:
     #     argv = sys.argv[sys.argv.index("--") + 1:]  # get all args after "--"
 
-    reference_remap_by_rename(sys.argv[6], sys.argv[7], sys.argv[8], sys.argv[9])
+    reference_remap_by_rename(sys.argv[6], sys.argv[7], sys.argv[8],
+                              sys.argv[9])

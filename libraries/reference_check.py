@@ -3,7 +3,8 @@
 import bpy
 from refactor.libraries.proj_path_utilities import to_blender_friendly_rel
 from pathlib import PurePath
-from refactor.libraries.reference_check_utilities import is_dupli_group_ref, is_object_ref, is_material_ref
+from refactor.libraries.reference_check_utilities import is_dupli_group_ref, \
+    is_object_ref, is_material_ref
 
 
 # ==========
@@ -13,12 +14,14 @@ from refactor.libraries.reference_check_utilities import is_dupli_group_ref, is_
 # ==========
 # Description:
 # ==========
-# Checks a '.blend' file for a reference to data of name 'data_name' of type'data_type' that is externally linked to 'abs_to_library'.
+# Checks a '.blend' file for a reference to data of name 'data_name' of
+# type'data_type' that is externally linked to 'abs_to_library'.
 #
 # ==========
 # Usage:
 # ==========
-# To be use with the Blender command, usually run using the Python subprocess.run() function.
+# To be use with the Blender command, usually run using the Python
+# subprocess.run() function.
 
 # ==========
 # Inputs:
@@ -38,7 +41,8 @@ def reference_check(abs_to_library, data_type, data_name):
     print("----------")
 
     data = bpy.data
-    rel_to_library = '//' + to_blender_friendly_rel(abs_to_library, data.filepath)
+    rel_to_library = '//' + to_blender_friendly_rel(abs_to_library,
+                                                    data.filepath)
     reference_found = False
     rel_to_current_file = PurePath(data.filepath).name
     library = None
@@ -49,7 +53,8 @@ def reference_check(abs_to_library, data_type, data_name):
             break
 
     # ----------
-    # Don't need to check the library file, because that is sorted in the main script.
+    # Don't need to check the library file, because that is sorted in the
+    # main script.
     # ----------
     if rel_to_current_file == rel_to_library:
         pass
@@ -59,7 +64,8 @@ def reference_check(abs_to_library, data_type, data_name):
         # ----------
         if data_type == "GROUP":
             for obj_iter in data.objects:
-                if is_dupli_group_ref(obj_iter.dupli_group, data_name, library):
+                if is_dupli_group_ref(obj_iter.dupli_group, data_name,
+                                      library):
                     reference_found = True
                     break
         # ----------
@@ -83,7 +89,9 @@ def reference_check(abs_to_library, data_type, data_name):
         # ----------
         else:
             print("----------")
-            print("'%s' is not a valid data type for this function, which are 'MESH', 'GROUP', or 'MATERIAL'." % data_type)
+            print(
+                "'%s' is not a valid data type for this function, which are "
+                "'MESH', 'GROUP', or 'MATERIAL'." % data_type)
             print("----------")
             return
 
@@ -92,7 +100,8 @@ def reference_check(abs_to_library, data_type, data_name):
         print("Reference found.")
         print("----------")
 
-        # This is how we communicate that there was a references. Not sure if there is a better way.
+        # This is how we communicate that there was a references. Not sure
+        # if there is a better way.
         sys.exit(1)
     else:
         print("----------")

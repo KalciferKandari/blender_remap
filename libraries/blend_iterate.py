@@ -11,7 +11,8 @@ from pathlib import Path
 # ==========
 # Description:
 # ==========
-# Recursively iterates through a directory and runs a script using the 'Blender' command on all the '.blend' files it finds.
+# Recursively iterates through a directory and runs a script using the
+# 'Blender' command on all the '.blend' files it finds.
 #
 # ==========
 # Inputs:
@@ -37,7 +38,8 @@ def blend_iterate(*args):
         if counter > 1:
             script_arguments.append(arg_iter)
 
-    process_arguments = ["blender", "", "--background", "--python", script_path, "--"]
+    process_arguments = ["blender", "", "--background", "--python",
+                         script_path, "--"]
     for arg_iter in script_arguments:
         process_arguments.append(arg_iter)
 
@@ -45,10 +47,12 @@ def blend_iterate(*args):
     blend_paths = Path(project_path).glob('**/*.blend')
 
     return_codes = []
-    # For every directory in the project_path, run the Blender command with the script
+    # For every directory in the project_path, run the Blender command with
+    # the script
     for blend_path_iter in blend_paths:
         blend_path_iter = str(blend_path_iter)
-        # 'blend_path_iter' is a 'Path' object, convert it to a string and assign it.
+        # 'blend_path_iter' is a 'Path' object, convert it to a string and
+        # assign it.
         process_arguments[1] = blend_path_iter
 
         print("----------")
