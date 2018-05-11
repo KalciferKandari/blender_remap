@@ -2,7 +2,7 @@
 
 # Blender Remap
 
-
+Project status: UNSTABLE. Not tested thoroughly, may still be serious issues.
 
 ## Introduction
 
