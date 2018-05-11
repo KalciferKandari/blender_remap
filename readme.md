@@ -2,6 +2,8 @@
 
 # Blender Remap
 
+
+
 ## Introduction
 
 3 Python scripts that are used for the purposes of refactoring library references, internal and external, in Blender project directories. The code works, but is quite primitive.
@@ -12,13 +14,15 @@ They are designed to be used with [BAM Asset Manager](https://docs.blender.org/m
 
 *I wrote these scripts for personal use only, so if you use them I accept no responsibility for the damages they may cause.*
 
+*Backup before running any of these scripts.*
+
 ## The Scripts
 
 **Backup the project directory before running any of these scripts** because it is searched recursively for '.blend' files and edits them. The error-checking isn't great, so something could go wrong and there is no way back.
 
 ### main_make_dulpi_group_source.py
 
-Makes the selected DupliGroup the source by updating all the references to the old source.
+Makes the selected DupliGroup the source, by converting the DupliGroup into a normal group while preserving the sub-DupliGroups, then updating all the references within a project directory.
 
 #### Usage
 
@@ -37,14 +41,14 @@ Makes the selected DupliGroup the source by updating all the references to the o
 
 ### main_remap_names.py
 
-Renames the select data and ensure all the internal and external links still work within a certain project directory.
+Renames the select data and ensure all the internal and external links still work within a project directory.
 
 #### Usage
 
 - **Make a copy of the project folder, very important.**
 - Close all Blender windows, all of them.
 - Use the command 'blender file_name.blend' to open the '.blend' file where the script will be run.
-- Do not mess-up the project path, that could be bad.
+- *The path must be correct, otherwise a lot of files could be ruined.*
 - GROUP:
     - Create DupliGroup in the source file. This is just for the purpose of selecting the group.
     - Open the script in the internal text editor.
@@ -59,12 +63,12 @@ Renames the select data and ensure all the internal and external links still wor
     - Select an object in the source file that has the material.
     - Select the material from the materials panel.
     - Open the script in the internal text editor.
-    - Type the new name for the first argument, 'MATERIAL' for the second argument, and the project path and script path for the next 2 arguments.
+    - Set the inputs where remap_rename() is called in the file. It takes the new name for the first argument, 'MATERIAL' for the second argument, and the project path and script path for the next 2 arguments.
     - Click 'Run Script' on the text editor panel.
 
 ### main_safe_delete.py
 
-Safely deletes data by ensuring there are no internal or external references to it. Must be done in the source file of the data.
+Safely deletes data by ensuring there are no internal or external references to it within a project directory. Must be done in the source file of the data.
 
 - GROUP: Safely deletes a group, but not objects that were in it.
     - **Note**: Those objects might still be part of other groups.
@@ -79,21 +83,21 @@ Safely deletes data by ensuring there are no internal or external references to 
 - **Make a copy of the project folder, very important.**
 - Close all Blender windows, all of them.
 - Use the command 'blender file_name.blend' to open the '.blend' file where the script will be run.
-- Do not mess-up the project path, that could be bad.
+- *The path must be correct, otherwise a lot of files could be ruined.*
 - GROUP:
     - Create DupliGroup in the source file. This is just for the purpose of selecting the group.
     - Open the script in the internal text editor.
-    - Type 'GROUP' for the first argument, and the project path and script path for the next 2 arguments, run the script.
+    - Set the inputs where safe_delete() is called in the file. It takes 'GROUP' for the first argument, and the project path and script path for the next 2 arguments, run the script.
     - The DupliGroup will automatically be deleted.
 - MESH:
     - Select the object in the source file.
     - Open the script in the internal text editor.
-    - Type 'MESH' for the first argument, and the project path and script path for the next 2 arguments, run the script.
+    - Set the inputs where safe_delete() is called in the file. It takes 'MESH' for the first argument, and the project path and script path for the next 2 arguments, run the script.
 - MATERIAL:
     - Select an object in the source file that has the material.
     - Select the material from the materials panel.
     - Open the script in the internal text editor.
-    - Type 'MATERIAL' for the first argument, and the project path and script path for the next 2 arguments, run the script.
+    - Set the inputs where safe_delete() is called in the file. It takes 'MATERIAL' for the first argument, and the project path and script path for the next 2 arguments, run the script.
 
 ## Improvements
 

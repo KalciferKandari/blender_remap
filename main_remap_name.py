@@ -14,17 +14,17 @@ print("==========\n")
 # ==========
 # Description:
 # ==========
-# Renames some data and ensure all the internal and external links still work within a certain project directory.
+# Renames the select data and ensure all the internal and external links still work within a project directory.
 #
 # ==========
 # Script usage:
 # ==========
-# - Make a copy of the project folder, very important.
+# - **Make a copy of the project folder, very important.**
 # - Close all Blender windows, all of them.
-# - Open the '.blend' file where the script will be run using 'blender file_name.blend'.
-# - Do not mess-up the project path, that could be bad.
+# - Use the command 'blender file_name.blend' to open the '.blend' file where the script will be run.
+# - *The path must be correct, otherwise a lot of files could be ruined.*
 # - GROUP:
-#     - Create DupliGroup in the source file.
+#     - Create DupliGroup in the source file. This is just for the purpose of selecting the group.
 #     - Open the script in the internal text editor.
 #     - Set the inputs where remap_rename() is called in the file. It takes new name for the first argument, 'GROUP' for the second argument, and the project path and script path for the next 2 arguments.
 #     - Click 'Run Script' on the text editor panel.
@@ -37,7 +37,7 @@ print("==========\n")
 #     - Select an object in the source file that has the material.
 #     - Select the material from the materials panel.
 #     - Open the script in the internal text editor.
-#     - Type the new name for the first argument, 'MATERIAL' for the second argument, and the project path and script path for the next 2 arguments.
+#     - Set the inputs where remap_rename() is called in the file. It takes the new name for the first argument, 'MATERIAL' for the second argument, and the project path and script path for the next 2 arguments.
 #     - Click 'Run Script' on the text editor panel.
 #
 remap_name(

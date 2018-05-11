@@ -14,14 +14,14 @@ print("==========\n")
 # ==========
 # Description:
 # ==========
-# Makes the selected DupliGroup the source by updating all the references to the old source.
+# Makes the selected DupliGroup the source, by converting the DupliGroup into a normal group while preserving the sub-DupliGroups, then updating all the references within a project directory.
 #
 # ==========
 # Script usage:
 # ==========
-# - **Make a copy of the project folder, very important.**
+#  **Make a copy of the project folder, very important.**
 # - Close all Blender windows, all of them.
-# - Open the '.blend' file where the script will be run using 'blender file_name.blend'.
+# - Use the command 'blender file_name.blend' to open the '.blend' file where the script will be run.
 # - Link the script to the internal text editor.
 # - Select the single DupliGroup to be made the source.
 # - Make sure the DupliGroup has its transforms zeroed.
