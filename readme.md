@@ -8,7 +8,7 @@ Project status: UNSTABLE. Not tested thoroughly, may still be serious issues.
 
 3 Python scripts that are used for the purposes of refactoring library references, internal and external, in Blender project directories. The code works, but is quite primitive.
 
-They are designed to be used with [BAM Asset Manager](https://docs.blender.org/manual/en/dev/pipeline/bam.html), which allow the remapping of '.blend' files in a project directory, whereas these scripts allow the remapping of data within the '.blend' files themselves.
+They are designed to accompany [BAM Asset Manager](https://docs.blender.org/manual/en/dev/pipeline/bam.html), which allow the remapping of '.blend' files in a project directory, whereas these scripts allow the remapping of data within the '.blend' files themselves.
 
 ## Disclaimer
 
@@ -41,7 +41,7 @@ Makes the selected DupliGroup the source, by converting the DupliGroup into a no
 
 ### main_remap_names.py
 
-Renames the select data and ensure all the internal and external links still work within a project directory.
+Renames the selected data and ensures all the internal and external links still work within a project directory.
 
 #### Usage
 
@@ -108,3 +108,4 @@ Clearly the work-flow is not ideal, a lot of work could be done to improve the e
 - To begin with, iterating through the '.blend' files with the blender command is very slow, and in fact the scripts are a minute fraction that time, so the files should be read directly, possibly using [blendfile.py](https://github.com/scorpion81/blender-addons/blob/master/io_blend_utils/blend/blendfile.py).
 - Of course a great improvement would be the conversion to a Blender add-on with a GUI, if possible.
 - More robust error-handling. I didn't go into much detail into this. If the computer crashes part way through, for example, nothing is done to account for that. The only thing to do would be to restore the backup copy of the project directory.
+- A lot of TODOs in the scripts give some ideas as to some improvements.
