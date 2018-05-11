@@ -10,11 +10,11 @@ They are designed to be used with [BAM Asset Manager](https://docs.blender.org/m
 
 ## Disclaimer
 
-***I wrote these scripts for personal use only, so if you use them I accept no responsibility for the damages they may cause.***
+*I wrote these scripts for personal use only, so if you use them I accept no responsibility for the damages they may cause.*
 
 ## The Scripts
 
-**Backup the project directory before running any of these scripts** because it is searched recursively for '.blend' files and edits them. The error-checking isn't great, so if something could go wrong and there is no way back.
+**Backup the project directory before running any of these scripts** because it is searched recursively for '.blend' files and edits them. The error-checking isn't great, so something could go wrong and there is no way back.
 
 ### main_make_dulpi_group_source.py
 
@@ -41,7 +41,7 @@ Renames the select data and ensure all the internal and external links still wor
 
 #### Usage
 
-- Make a copy of the project folder, very important.
+- **Make a copy of the project folder, very important.**
 - Close all Blender windows, all of them.
 - Open the '.blend' file where the script will be run using 'blender file_name.blend'.
 - Do not mess-up the project path, that could be bad.
@@ -71,12 +71,12 @@ Safely deletes data by ensuring there are no internal or external references to 
 - MESH: Safely deletes an object and its data.
     - **Note** The object will still be deleted even if it is part of a group, but not if that group has DupliGroups created from it.
     - **Note**: If the object being deleted is the last user of a material, that material will be deleted.
-- Material: Safely deletes a material and the material slot it was in.
+- MATERIAL: Safely deletes a material and the material slot it was in.
     - **Note**: If a material has been created in the current file and not saved, it will be deleted even though if the file was saved it wouldn't be.
 
 #### Usage
 
-- Make a copy of the project folder, very important.
+- **Make a copy of the project folder, very important.**
 - Close all Blender windows, all of them.
 - Open the '.blend' file where the script will be run using 'blender file_name.blend'.
 - Do not mess-up the project path, that could be bad.
