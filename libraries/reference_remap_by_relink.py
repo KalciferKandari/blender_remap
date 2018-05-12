@@ -2,8 +2,8 @@
 
 import bpy
 from pathlib import PurePath
-from refactor.libraries.link_external_group import link_external_group
-from refactor.libraries.proj_path_utilities import to_blender_friendly_rel
+from blender_remap.libraries.link_external_group import link_external_group
+from blender_remap.libraries.proj_path_utilities import to_blender_friendly_rel
 
 
 # ==========

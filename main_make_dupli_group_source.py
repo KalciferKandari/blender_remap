@@ -1,6 +1,6 @@
 # 2018_05_08_22_08_08
 
-from refactor.libraries.make_dupli_group_source import make_dupli_group_source
+from blender_remap.libraries.make_dupli_group_source import make_dupli_group_source
 
 print("\n==========")
 print("Script started.")

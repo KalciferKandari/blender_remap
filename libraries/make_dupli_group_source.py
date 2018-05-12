@@ -1,10 +1,10 @@
 # 2018_04_23_00_08_30
 
 import bpy
-from refactor.libraries.proj_path_utilities import abs_into_rel_to_proj, \
+from blender_remap.libraries.proj_path_utilities import abs_into_rel_to_proj, \
     rel_into_rel_to_proj
-from refactor.libraries.link_external_group import link_external_group
-from refactor.libraries.blend_iterate import blend_iterate
+from blender_remap.libraries.link_external_group import link_external_group
+from blender_remap.libraries.blend_iterate import blend_iterate
 
 
 # ==========

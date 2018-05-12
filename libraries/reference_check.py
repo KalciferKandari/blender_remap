@@ -1,9 +1,9 @@
 # 2018_05_10_10_51_29
 
 import bpy
-from refactor.libraries.proj_path_utilities import to_blender_friendly_rel
+from blender_remap.libraries.proj_path_utilities import to_blender_friendly_rel
 from pathlib import PurePath
-from refactor.libraries.reference_check_utilities import is_dupli_group_ref, \
+from blender_remap.libraries.reference_check_utilities import is_dupli_group_ref, \
     is_object_ref, is_material_ref
 
 

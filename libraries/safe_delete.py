@@ -1,7 +1,7 @@
 # 2018_05_08_22_04_25
 
 import bpy
-from refactor.libraries.blend_iterate import blend_iterate
+from blender_remap.libraries.blend_iterate import blend_iterate
 
 
 # ==========

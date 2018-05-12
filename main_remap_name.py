@@ -1,6 +1,6 @@
 # 2018_05_08_22_13_21
 
-from refactor.libraries.remap_name import remap_name
+from blender_remap.libraries.remap_name import remap_name
 
 print("\n==========")
 print("Script started.")

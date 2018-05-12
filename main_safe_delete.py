@@ -1,6 +1,6 @@
 # 2018_05_10_11_27_01
 
-from refactor.libraries.safe_delete import safe_delete
+from blender_remap.libraries.safe_delete import safe_delete
 
 print("\n==========")
 print("Script started.")
