@@ -6,7 +6,7 @@ Project status: UNSTABLE. Not tested thoroughly, may still be serious issues.
 
 ## Introduction
 
-3 Python scripts that are used for the purposes of refactoring library references, internal and external, in Blender project directories. The code works, but is quite primitive.
+3 Python scripts that are used for the purposes of refactoring library references, internal and external, in Blender project directories. The code works, but is quite primitive and slow.
 
 They are designed to accompany [BAM Asset Manager](https://docs.blender.org/manual/en/dev/pipeline/bam.html), which allow the remapping of '.blend' files in a project directory, whereas these scripts allow the remapping of data within the '.blend' files themselves.
 
